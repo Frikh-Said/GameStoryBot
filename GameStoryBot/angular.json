@@ -3,11 +3,18 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "StoryGameBot": {
+    "GameStoryBot": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
         }
       },
       "root": "",
@@ -17,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/story-game-bot",
+            "outputPath": "dist/game-story-bot",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -66,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "StoryGameBot:build:production"
+              "buildTarget": "GameStoryBot:build:production"
             },
             "development": {
-              "buildTarget": "StoryGameBot:build:development"
+              "buildTarget": "GameStoryBot:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -104,6 +111,6 @@
     }
   },
   "cli": {
-    "analytics": "9d1b1efc-9d79-4fce-b708-49d3f960794d"
+    "analytics": "ce3baf7b-770c-43a7-aa39-0d2851cbd376"
   }
 }

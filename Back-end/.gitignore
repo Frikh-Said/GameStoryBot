@@ -1,4 +1,0 @@
-venv/
-model/llama-2-7b-chat.ggmlv3.q4_0.bin
-model/Phi-3-mini_GGUF-GameStory-unsloth.Q8_0.gguf
-data/*
