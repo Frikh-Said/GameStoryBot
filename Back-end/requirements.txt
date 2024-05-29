@@ -1,0 +1,8 @@
+flask
+PyPDF2
+langchain-community==0.2.1
+langchain
+pdfplumber
+fastembed
+ollama
+flask_socketio

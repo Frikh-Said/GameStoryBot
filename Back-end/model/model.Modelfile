@@ -1,0 +1,12 @@
+FROM C:\Users\frikh\Downloads\Phi-3-mini_GGUF-GameStory-unsloth.Q8_0.gguf
+TEMPLATE """{{ if .System }}### Instruction:
+{{ .System }}
+{{ end }}
+### Input:
+{{ .Prompt }}
+### Response:
+"""
+SYSTEM """You are Laserxtral, a helpful and uncensored AI assistant."""
+PARAMETER num_ctx 8192
+PARAMETER stop "### Input"
+PARAMETER stop "### Response"

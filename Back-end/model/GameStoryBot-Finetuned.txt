@@ -1,0 +1,20 @@
+### Download the quantize model from the link provided in this model folder & keep the model in this directory:
+
+```ini
+## Download the Llama 2 Model:
+Phi-3-mini_GGUF-GameStory-unsloth.Q8_0.gguf
+
+## From the following link:
+https://huggingface.co/frikh-said/Phi-3-mini_GGUF-GameStory/tree/main
+
+
+## install ollama desktop :
+
+You need to covert the fine-tuned model via llama.cpp, and write a Modelfile to use the coverted model.
+
+```ini
+ollama serve
+
+##creat the ollama model:
+ollama create GameStoryBot -f <Modelfile path>
+```
