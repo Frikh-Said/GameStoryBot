@@ -1,0 +1,406 @@
+ <!--place holder-->
+ <div class="messageBox">
+    <div class="fileUploadWrapper">
+      <label for="file">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 337 337">
+          <circle
+            stroke-width="20"
+            stroke="#6c6c6c"
+            fill="none"
+            r="158.5"
+            cy="168.5"
+            cx="168.5"
+          ></circle>
+          <path
+            stroke-linecap="round"
+            stroke-width="25"
+            stroke="#6c6c6c"
+            d="M167.759 79V259"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="25"
+            stroke="#6c6c6c"
+            d="M79 167.138H259"
+          ></path>
+        </svg>
+        <span class="tooltip">Add an image</span>
+      </label>
+      <input type="file" id="file" name="file" />
+    </div>
+    <input required="" placeholder="Message..." type="text" id="messageInput" />
+    <!-- <button id="sendButton">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 664 663">
+        <path
+          fill="none"
+          d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
+        ></path>
+        <path
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-width="33.67"
+          stroke="#6c6c6c"
+          d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
+        ></path>
+      </svg>
+    </button> -->
+    <button class="btn">
+        <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
+            <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+        </svg>
+    
+        <span class="text">Generate</span>
+    </button>
+  </div>
+  <!--place holder end-->
+
+
+
+
+  .messageBox {
+    width: 800px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2d2d2d;
+    padding: 0 15px;
+    border-radius: 10px;
+    border: 1px solid rgb(63, 63, 63);
+    position: fixed;
+   /* bottom: 20px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .messageBox:focus-within {
+    border: 1px solid rgb(110, 110, 110);
+  }
+  
+  .fileUploadWrapper {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  #file {
+    display: none;
+  }
+  
+  .fileUploadWrapper label {
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-right: 15px;
+  }
+  
+  .fileUploadWrapper label svg {
+    height: 24px;
+  }
+  
+  .fileUploadWrapper label svg path {
+    transition: all 0.3s;
+  }
+  
+  .fileUploadWrapper label svg circle {
+    transition: all 0.3s;
+  }
+  
+  .fileUploadWrapper label:hover svg path {
+    stroke: #fff;
+  }
+  
+  .fileUploadWrapper label:hover svg circle {
+    stroke: #fff;
+    fill: #3c3c3c;
+  }
+  
+  .fileUploadWrapper label:hover .tooltip {
+    display: block;
+    opacity: 1;
+  }
+  
+  .tooltip {
+    position: absolute;
+    top: -40px;
+    display: none;
+    opacity: 0;
+    color: white;
+    font-size: 10px;
+    text-wrap: nowrap;
+    background-color: #000;
+    padding: 6px 10px;
+    border: 1px solid #3c3c3c;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.596);
+    transition: all 0.3s;
+  }
+  
+  #messageInput {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+    color: white;
+    font-size: 16px;
+  }
+  
+  #messageInput::placeholder {
+    color: #bbb;
+    opacity: 1; /* Override default opacity */
+  }
+  
+  #messageInput:focus ~ #sendButton svg path,
+  #messageInput:valid ~ #sendButton svg path {
+    fill: #3c3c3c;
+    stroke: white;
+  }
+  
+  .btn {
+    border: none;
+    width: 15em;
+    height: 4em;
+    border-radius: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: #1C1A1C;
+    cursor: pointer;
+    transition: all 450ms ease-in-out;
+    margin-left: 15px;
+  }
+  
+  .sparkle {
+    fill: #AAAAAA;
+    transition: all 800ms ease;
+  }
+  
+  .text {
+    font-weight: 600;
+    color: #AAAAAA;
+    font-size: medium;
+  }
+  
+  .btn:hover {
+    background: linear-gradient(0deg, #A47CF3, #683FEA);
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+                inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+                0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+                0px 0px 180px 0px #9917FF;
+    transform: translateY(-2px);
+  }
+  
+  .btn:hover .text {
+    color: white;
+  }
+  
+  .btn:hover .sparkle {
+    fill: white;
+    transform: scale(1.2);
+  }
+  
+  body {
+    background-color: #2d2d2d; /* Dark mode background color */
+    color: white; /* Text color for dark mode */
+  }
+
+/* place holder end*/
+
+
+
+<!---->
+<div class="outer" style="height: 97.5vh; width: 99.5vw;">
+    <div class="dot"></div>
+    <div class="card">
+      <div class="ray"></div>
+      <div class="text">Game story Bot</div>
+      <div>Views</div>
+    
+      <!--place holder-->
+  <div class="messageBox">
+    <div class="fileUploadWrapper">
+      <label for="file">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 337 337">
+          <circle
+            stroke-width="20"
+            stroke="#6c6c6c"
+            fill="none"
+            r="158.5"
+            cy="168.5"
+            cx="168.5"
+          ></circle>
+          <path
+            stroke-linecap="round"
+            stroke-width="25"
+            stroke="#6c6c6c"
+            d="M167.759 79V259"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="25"
+            stroke="#6c6c6c"
+            d="M79 167.138H259"
+          ></path>
+        </svg>
+        <span class="tooltip">Add an image</span>
+      </label>
+      <input type="file" id="file" name="file" />
+    </div>
+    <input required="" placeholder="Message..." type="text" id="messageInput" />
+    <!-- <button id="sendButton">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 664 663">
+        <path
+          fill="none"
+          d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
+        ></path>
+        <path
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-width="33.67"
+          stroke="#6c6c6c"
+          d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
+        ></path>
+      </svg>
+    </button> -->
+    <button class="btn">
+        <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
+            <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+        </svg>
+    
+        <span class="text" style="font-size: 1.8rem;">Generate</span>
+    </button>
+  </div>
+  <!--place holder end-->
+  
+      <div class="line topl"></div>
+      <div class="line leftl"></div>
+      <div class="line bottoml"></div>
+      <div class="line rightl"></div>
+    </div>
+  </div>
+  
+  
+  
+/**UI complet**/
+.outer {
+  width: 100%; /* Using viewport width */
+  height: 100%; /* Using viewport height */
+  border-radius: 0; /* Remove border radius */
+  padding: 0; /* Remove padding */
+  position: relative;
+}
+
+.card {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 0; /* Remove border radius */
+  border: none; /* Remove border */
+  background: radial-gradient(circle 280px at 0% 0%, #444444, #0c0d0d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  color: #fff;
+}
+
+
+.dot {
+  width: 5px;
+  aspect-ratio: 1;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ffffff;
+  border-radius: 100px;
+  z-index: 2;
+  right: 10%;
+  top: 10%;
+  animation: moveDot 6s linear infinite;
+}
+
+@keyframes moveDot {
+  0%,
+  100% {
+    top: 10%;
+    right: 10%;
+  }
+  25% {
+    top: 10%;
+    right: calc(100% - 35px);
+  }
+  50% {
+    top: calc(100% - 30px);
+    right: calc(100% - 35px);
+  }
+  75% {
+    top: calc(100% - 30px);
+    right: 10%;
+  }
+}
+
+.ray {
+  width: 220px;
+  height: 45px;
+  border-radius: 100px;
+  position: absolute;
+  background-color: #c7c7c7;
+  opacity: 0.4;
+  box-shadow: 0 0 50px #fff;
+  filter: blur(10px);
+  transform-origin: 10%;
+  top: 0%;
+  left: 0;
+  transform: rotate(40deg);
+}
+
+.card .text {
+  font-weight: bolder;
+  font-size: 4rem;
+  background: linear-gradient(45deg, #000000 4%, #fff, #000);
+  background-clip: text;
+  color: transparent;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  background-color: #2c2c2c;
+}
+.topl {
+  top: 10%;
+  background: linear-gradient(90deg, #888888 30%, #1d1f1f 70%);
+}
+.bottoml {
+  bottom: 10%;
+}
+.leftl {
+  left: 10%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, #747474 30%, #222424 70%);
+}
+.rightl {
+  right: 10%;
+  width: 1px;
+  height: 100%;
+}
+
+
+
+
+  
+  
+  
